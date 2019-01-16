@@ -5,7 +5,7 @@ def readme():
         return f.read()
 
 setup(name='mqtt_wrapper',
-      version='0.1',
+      version='0.3',
       description='wrapper for paho mqtt client',
       long_description=readme(),
       url='https://github.com/EmaroLab/mqtt_wrapper.git',

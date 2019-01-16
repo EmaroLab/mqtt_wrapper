@@ -4,7 +4,7 @@ Installation
 
 To install this package use the command:
 
-``$ sudo pip install mqtt_wrapper``
+``$ sudo python -m pip install mqtt_wrapper``
 
 or
 
