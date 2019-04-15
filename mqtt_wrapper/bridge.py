@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import paho.mqtt.client as mqtt
 import time
+import traceback
 
 class bridge:
 
@@ -32,7 +33,7 @@ class bridge:
         while self.rc != 0:
             try:
                 self.rc = self.client.connect(self.host, self.port, self.keepalive)
-            except:
+            except Exception as e:
                 print("connection failed")
             time.sleep(2)
             self.timeout = self.timeout + 2
@@ -57,7 +58,10 @@ class bridge:
                 self.connect()
 
     def on_message(self, client, userdata, msg):
-        self.msg_process(msg)
+        try:
+            self.msg_process(msg)
+        except Exception as e:
+            print(traceback.format_exc())
 
     def unsubscribe(self):
         print(" unsubscribing")
